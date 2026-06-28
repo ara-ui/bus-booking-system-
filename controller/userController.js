@@ -19,6 +19,23 @@ const createUser = (req, res) => {
         });
     });
 }
+
+//get users
+const getUser=(req,res)=>{
+    const sql ="select * from Users";
+
+    db.execute(sql,(err,result)=>{
+        if (err){
+            return res.status(500).json({
+                message:err.message
+            });
+        }
+        res.json(result);
+    });
+
+};
+
+
 // Update User
 const updateUser = (req, res) => {
     const { id } = req.params;
@@ -68,5 +85,6 @@ const deleteUser = (req, res) => {
 module.exports = {
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUser
 };

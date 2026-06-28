@@ -2,13 +2,13 @@ const express = require("express");
 const db = require("./db"); 
 
 const userRoutes=require('./routes/userRoutes');
-
+const busRoutes=require('./routes/busRoutes')
 const app = express();
 
 app.use(express.json());
 
 app.use("/users",userRoutes);
-
+app.use('/buses',busRoutes);
 
 app.listen(3000, () => {
     console.log("Server running on port 3000");

@@ -4,7 +4,8 @@ const router=express.Router();
 const {
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUser
 }=require('../controller/userController');
 
 router.post('/',createUser);
@@ -12,5 +13,7 @@ router.post('/',createUser);
 router.put('/:id',updateUser);
 
 router.delete('/:id',deleteUser);
+
+router.get('/',getUser);
 
 module.exports=router;
